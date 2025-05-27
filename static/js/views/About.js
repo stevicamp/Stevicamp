@@ -12,7 +12,7 @@ export async function getHtmlAsync() {
 
     let imagesHtml = "";
     
-    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images.
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
