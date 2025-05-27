@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/searchTest2.js"></script>
+</head>
+
+<body>
+    <script>
+
+        // TEST=OBJ===========================================
+let testObj = 
+{ 
+  
+    domains: [
+    { domainId: 123, domainName: "www.domainOfMinekoala.com", customerId: '765' },
+    { domainId: 3456, domainName: "www.domain2.com", customerId: '34' }], 
+}
+
+let resultOBJ = searchObject(testObj, "q1".toLocaleLowerCase());
+console.log(resultOBJ);
+// TEST END ===OBJ===================================
+
+
+       console.log(searchObject(testObj, "koala"));
+
+
+    </script>
+
+</body>
+
+</html>
