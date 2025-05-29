@@ -1,3 +1,5 @@
 {
-"test":"123"   
+  "title": "Updated Book",
+  "author": "The name of author",
+  "price": 29.99
 }
