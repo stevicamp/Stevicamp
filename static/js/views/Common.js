@@ -33,14 +33,14 @@ export const setTitle = (title, img) => {
 
 async function executeCommonViewScriptAsync()
 {
-    await getDb();
+    await getDbAsync();
 }
 
 executeCommonViewScriptAsync();
 // export async function getItems(itemType)  // ItemType = car, caravan, products etc.
 // {
 //      // The singleton Database - fetch if not already fetched
-//     let db = await getDb();
+//     let db = await getDbAsync();
 
 //      // Use of string for better performance instead of using .innerHTML += 
 //      var combined_items = ''; // Holder of the items, that are constructed and put in this variable
