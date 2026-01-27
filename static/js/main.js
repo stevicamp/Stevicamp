@@ -33,7 +33,7 @@ import * as Appliances from './views/Appliances.js';
 import * as Microbuses from './views/Microbuses.js';
 import * as About from './views/About.js';
 import * as New from './views/New.js';
-
+import * as Boats from './views/Boats.js';
 
 // Router  ------------------------------------------------------------------------------------------------
 function router(e) {
@@ -62,7 +62,8 @@ const routes = {
     '/Appliances': Appliances,
     '/Microbuses': Microbuses,
     '/About': About,
-    '/New': New
+    '/New': New,
+    '/Boats': Boats
 };
 
 
