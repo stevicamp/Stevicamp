@@ -1259,38 +1259,28 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
         // itemsList = Object.entries(db).map(([key, value]) => {[key],[value]});
         itemsList = db.items;
     }
-    // else
-    // {
-    //     itemsList = itemsList; 
-    //     itemsList = db;
-    // }
-
-
-
+     
+    
     // Use of string for better performance instead of using .innerHTML += 
-    var combined_items = ''; // Holder of the items, that are constructed and put in this variable
-    var itemLink = ''; // Holder for the constructing of a link for every item 
+    let combined_items = ''; // Holder of the items, that are constructed and put in this variable
+    const allItems = Object.values(itemsList).flat().filter(Boolean); // Merge the categories in one array // .flat() removes one level of nesting from an array // .filter(Boolean); if category is empty prevents undefined
+    allItems.sort((a, b) => b.date.localeCompare(a.date)); // Sort that array by date in order to get the newest items first
 
-    for (let g = 0; g < Object.keys(itemsList).length; g++) {
-        itemType = Object.keys(itemsList)[g];
+    for (let i = 0; i < allItems.length; i++) {
+        const item = allItems[i];
+   
+         const imgSrc = item.photos?.[0] ?? 'static/img/no-image.png';
+         const itemLink = `${window.location.origin}?search=${item.id}`; // Holder for the constructing of a link for every item 
 
-        
-        // // Object.keys(db)[0];
-        // // Object.keys(obj).length
-
-        // <div onmousedown="itemModal('')"></div>
-
-        for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
-            itemLink = window.location.host + '?search=' + itemsList[`${itemType}`][i].id; // Construct the link for the current item // ItemsType is for the item type. caravan, car etc.
-
-            // For every iteration there is constructed item an put in the variable "combined_items".
-            combined_items += (`<div class="content_container_item">
-         <a href="javascript:itemModalNavigation('${itemsList[`${itemType}`][i].id}');">
-             <img class="item_img" src="${itemsList[`${itemType}`][i].photos[0]}"> </img>
-             <p>${itemsList[`${itemType}`][i].title}</p>
+        // For every iteration there is constructed item an put in the variable "combined_items".
+        combined_items += (`<div class="content_container_item">
+         <a href="javascript:itemModalNavigation('${item.id}');">
+             <img class="item_img" src="${imgSrc}"> </img>
+             <p>${item.title}</p>
          </a>
        
-         <span class="price">${itemsList[`${itemType}`][i].price}</span>
+         <span class="price">${item.price} €</span>
+
          <div class="item_buttons_wrapper"> 
              <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');"></a>
              <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
@@ -1300,11 +1290,10 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
              <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
                  href="fb-messenger://share/?link=${itemLink}"></a>
          </div>
-                      </div>`);
-
-        }
+        
+         <a class="item_share_button" style="background-image: url('static/img/icons/delete.png'); margin-top: 20px;" href="javascript:deleteItemByItemLink('${itemLink}');" title="Изтриване!!!"></a>
+         <a class="item_share_button" style="background-image: url('static/img/icons/edit.png'); margin-top: 20px;" href='/Edit?${item.id}' data-link title="Редактиране"></a></div>`);
     }
-
     return combined_items;
 }
 
