@@ -311,11 +311,36 @@ function htmlItemSold(item)
 }
 
 
+ 
+
+
+
+// The image slide arrow buttons
+function imgSlideArrowButtons() {
+    return `<button id="arrow-leftSlideImg" class="arrow-left prevent-select">&#10094;</button>
+    <button id="arrow-rightSlideImg" class="arrow-right prevent-select">&#10095;</button> `;
+}
+
+
+
+
+
+// Generate link from obj for the view - used in the view
+function generateLinkFromObj(obj)
+{
+      const url = new URL(window.location.origin); // .origin instead of .host because of the https:// if using host it is without the https://
+            url.searchParams.set('search', obj.id);
+  return url.toString();
+}
+
+
+
+
 // Base HTML For caravans -----------------------------------------------------------------------
 async function caravansHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -336,8 +361,7 @@ async function caravansHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+      ${imgSlideArrowButtons()} 
        
         ${modalItemShareButtonsHtml(itemLink, obj.title)} 
    
@@ -355,7 +379,7 @@ async function caravansHtmlTemplate(obj) {
        
         ${htmlItemSold(obj)}
        <hr>
-       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price} €</span>
        <hr>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
        <hr>
@@ -364,8 +388,6 @@ async function caravansHtmlTemplate(obj) {
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
        <span><img src="static/img/icons/ruler.png"><b>Дължина:</b> ${obj.length}</span>
-       <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/toilet.png"><b>Тоалетна:</b> ${obj.toilet}</span>
        <hr>
@@ -399,9 +421,11 @@ async function caravansHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/markise.png"><b>Маркиза:</b> ${obj.markise}</span>
        <hr>
-       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
-       <hr>
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
+       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
@@ -425,7 +449,8 @@ async function caravansHtmlTemplate(obj) {
 async function carsHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
+
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -437,8 +462,7 @@ async function carsHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       ${imgSlideArrowButtons()} 
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -459,37 +483,39 @@ async function carsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
        <hr>
-       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.kind}</span>
-       <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
-       <span><img src="static/img/icons/engine.png"><b>Двигател:</b> ${obj.engine}; ${obj.hp}</span>
+       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.kind}</span>
+       <hr>
+       <span><img src="static/img/icons/fuel.png"><b>Гориво:</b> ${obj.fuel}</span>
+       <hr>
+       <span><img src="static/img/icons/engine.png"><b>Двигател:</b> ${obj.engine}</span>
+       <hr>
+       <span><img src="static/img/icons/horse.png"><b>Конски сили:</b> ${obj.hp}</span>
        <hr>
        <span><img src="static/img/icons/km.png"><b>Пробег:</b> ${obj.km}</span>
        <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <span><img src="static/img/icons/gears.png"><b>Скорости:</b> ${obj.gears}</span>
        <hr>
        <span><img src="static/img/icons/parctronic.png"><b>Парктроник:</b> ${obj.parktronic}</span>
        <hr>
-       <span><img src="static/img/icons/gears.png"><b>Скорости:</b> ${obj.gears}</span>
-       <hr>
-       <span><img src="static/img/icons/car-door.png"><b>Врати:</b> ${obj.doors}</span>
+       <span><img src="static/img/icons/tow.png"><b>Теглич:</b> ${obj.tow}</span>
        <hr>
        <span><img src="static/img/icons/particlefilter.png"><b>Партикфилтър:</b> ${obj.particulateFilter}</span>
        <hr>
        <span><img src="static/img/icons/snowflake.png"><b>АС/Климатик:</b> ${obj.ac}</span>
        <hr>
-       <span><img src="static/img/icons/tow.png"><b>Теглич:</b> ${obj.tow}</span>
+       <span><img src="static/img/icons/car-door.png"><b>Врати:</b> ${obj.doors}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>ГПС:</b> ${obj.gps}</span>
        <hr>
        <span><img src="static/img/icons/car-seat.png"><b>Места:</b> ${obj.seats}</span>
        <hr>
-       <span><img src="static/img/icons/type.png"><b>Вид:</b> ${obj.type}</span>
+       <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
-       <hr>
-       <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
@@ -509,7 +535,7 @@ async function carsHtmlTemplate(obj) {
 async function microbusHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -521,8 +547,7 @@ async function microbusHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+      ${imgSlideArrowButtons()} 
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -546,12 +571,14 @@ async function microbusHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
-       <span><img src="static/img/icons/engine.png"><b>Двигател:</b> ${obj.engine}; ${obj.hp}</span>
+       <span><img src="static/img/icons/fuel.png"><b>Гориво:</b> ${obj.fuel}</span>
+       <hr>
+       <span><img src="static/img/icons/engine.png"><b>Двигател:</b> ${obj.engine}</span>
+       <hr>
+       <span><img src="static/img/icons/horse.png"><b>Конски сили:</b> ${obj.hp}</span>
        <hr>
        <span><img src="static/img/icons/km.png"><b>Пробег:</b> ${obj.km}</span>
-       <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
-       <hr>
+       <hr> 
        <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
        <hr>
        <span><img src="static/img/icons/parctronic.png"><b>Парктроник:</b> ${obj.parktronic}</span>
@@ -559,6 +586,8 @@ async function microbusHtmlTemplate(obj) {
        <span><img src="static/img/icons/gears.png"><b>Скорости:</b> ${obj.gears}</span>
        <hr>
        <span><img src="static/img/icons/car-door.png"><b>Врати:</b> ${obj.doors}</span>
+       <hr>
+       <span><img src="static/img/icons/load.png"><b>Товарене:</b> ${obj.load}</span>
        <hr>
        <span><img src="static/img/icons/particlefilter.png"><b>Партикфилтър:</b> ${obj.particulateFilter}</span>
        <hr>
@@ -568,15 +597,15 @@ async function microbusHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/car-seat.png"><b>Места:</b> ${obj.seats}</span>
        <hr>
-       <span><img src="static/img/icons/type.png"><b>Тип:</b> ${obj.type}</span>
+       <span><img src="static/img/icons/car-type.png"><b>Тип:</b> ${obj.type}</span>
        <hr>
        <span><img src="static/img/icons/tow.png"><b>Теглич:</b> ${obj.tow}</span>
        <hr>
-       <span><img src="static/img/icons/load.png"><b>Товарене:</b> ${obj.loading}</span>
+       <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
-       <hr>
-       <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
@@ -597,7 +626,7 @@ async function microbusHtmlTemplate(obj) {
 async function scootersHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -609,8 +638,7 @@ async function scootersHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       ${imgSlideArrowButtons()} 
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -634,9 +662,11 @@ async function scootersHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/wheel.png"><b>Колела:</b> ${obj.wheels}</span>
        <hr>
-       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span> 
+       <span><img src="static/img/icons/horse.png"><b>Кубика:</b> ${obj.m3}</span>
        <hr>
        <span><img src="static/img/icons/km.png"><b>Пробег:</b> ${obj.km}</span>
+       <hr>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span> 
        <hr>
        <span><img src="static/img/icons/fuel.png"><b>Гориво:</b> ${obj.fuel}</span>
        <hr>
@@ -660,7 +690,7 @@ async function scootersHtmlTemplate(obj) {
 async function trailersHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -672,8 +702,7 @@ async function trailersHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+      ${imgSlideArrowButtons()}  
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -696,22 +725,22 @@ async function trailersHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
        <hr>
-       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.type}</span>
        <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
-       <hr> 
-       <span><img src="static/img/icons/axle.png"><b>Оси:</b> ${obj.axles}</span>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
        <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
        <hr>
        <span><img src="static/img/icons/load.png"><b>Товарене:</b> ${obj.loading}</span>
        <hr>
-       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
+       <span><img src="static/img/icons/axle.png"><b>Оси:</b> ${obj.axles}</span>
        <hr>
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
-       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.type}</span>
+       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
        <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr> 
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
@@ -732,7 +761,7 @@ async function trailersHtmlTemplate(obj) {
 async function wheelsHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -744,8 +773,7 @@ async function wheelsHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       ${imgSlideArrowButtons()}  
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -769,9 +797,7 @@ async function wheelsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
        <hr>
-       <span><img src="static/img/icons/ruler.png"><b>Мярка:</b> ${obj.measure}</span>
-       <hr>
-       <span><img src="static/img/icons/wheel.png"><b>Големина:</b> ${obj.size}</span>
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.measure}</span>
        <hr>
        <span><img src="static/img/icons/et.png"><b>ET:</b> ${obj.et}</span>
        <hr> 
@@ -785,13 +811,13 @@ async function wheelsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
-       <hr>
        <span><img src="static/img/icons/wheels-type.png"><b>Вид:</b> ${obj.type}</span>
        <hr>
        <span><img src="static/img/icons/wheels.png"><b>Брой:</b> ${obj.pcs}</span>
        <hr>
-       <span><img src="static/img/icons/car.png"><b>От/За:</b> ${obj.fromCar}</span>
+       <span><img src="static/img/icons/car.png"><b>От/Става за:</b> ${obj.fromCar}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <hr class="hr-orange"> 
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
@@ -811,7 +837,7 @@ async function wheelsHtmlTemplate(obj) {
 async function productsHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -823,8 +849,7 @@ async function productsHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       ${imgSlideArrowButtons()} 
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -850,9 +875,9 @@ async function productsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
-       <hr>
        <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
@@ -875,7 +900,7 @@ async function productsHtmlTemplate(obj) {
 async function equipmentHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -887,8 +912,7 @@ async function equipmentHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       ${imgSlideArrowButtons()} 
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -937,7 +961,7 @@ async function equipmentHtmlTemplate(obj) {
 async function appliancesHtmlTemplate(obj) {
     let db = await getDbAsync();
     let imagesHtml = "";
-    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -949,8 +973,7 @@ async function appliancesHtmlTemplate(obj) {
    <div class="img-preview-container">
        ${imagesHtml}
 
-       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+      ${imgSlideArrowButtons()}
        
        ${modalItemShareButtonsHtml(itemLink, obj.title)}
     </div>
@@ -966,21 +989,21 @@ async function appliancesHtmlTemplate(obj) {
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
 
         ${htmlItemSold(obj)}
-        
+
        <hr>
-       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price} €</span>
        <hr>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
        <hr>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
        <hr>
-       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
-       <hr>
        <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.type}</span>
        <hr>
-       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
        <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
@@ -994,7 +1017,79 @@ async function appliancesHtmlTemplate(obj) {
 </div>`;
 }
 
- 
+
+
+
+
+async function boatsHtmlTemplate(obj) {
+
+    let db = await getDbAsync();
+    let imagesHtml = "";
+    let itemLink = generateLinkFromObj(obj); // Construct the link for the current item
+
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
+    {
+        imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+    }
+
+    return `<div class="modalItemContainer" tabindex="0">
+
+   <div class="img-preview-container">
+       ${imagesHtml}
+
+      ${imgSlideArrowButtons()}
+       
+       ${modalItemShareButtonsHtml(itemLink, obj.title)}
+    </div>
+  
+   
+     
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
+   <h3 class="item-title"><img src="static/img/icons/boat.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
+
+       <hr>
+      
+        ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
+
+        ${htmlItemSold(obj)}
+
+       <hr>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price} €</span>
+       <hr>
+       <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <hr>
+       <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <hr>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <hr>
+       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.type}</span>
+       <hr>
+       
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
+       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
+       <hr>
+       <span><img src="static/img/icons/battery.png"><b>Акумулатор:</b> ${obj.battery}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
+       <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
+       <hr>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+   </div>
+</div>`;
+
+}
+
+
+
+
 
 
 // ### MODAL ### --------------------------------------------------------------------------------------------------------------
@@ -1034,6 +1129,9 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     }
     else if (item.category == "appliances") {
         generatedItemHtml = await appliancesHtmlTemplate(item);
+    }
+    else if (item.category == "boat") {
+        generatedItemHtml = await boatsHtmlTemplate(item);
     }
 
     let modal = document.getElementById("modalWindow");
