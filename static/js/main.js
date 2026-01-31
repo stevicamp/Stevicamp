@@ -41,7 +41,7 @@ function router(e) {
     e.preventDefault(); // Prevent deafult behavior don't follow the link
     const url = new URL(e.target.href);
     const path = url.pathname + url.search; // Only local path and search query since there is problem with blogger and the <base> url.
-    window.history.pushState(null, null, path); // Add the url to the history api of js so we can navigate back and forth with the browser buttons
+    window.history.pushState(null, null, window.location.origin + path); // Add the url to the history api of js so we can navigate back and forth with the browser buttons
     handleLocation();
 }
 
