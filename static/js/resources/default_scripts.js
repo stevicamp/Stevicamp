@@ -1280,6 +1280,7 @@ function removeM1() {
     if (url.searchParams.get('m') === '1') {
         url.searchParams.delete('m'); // Remove m=1 
         window.history.replaceState({}, document.title, url.pathname + url.search); // Keep other params
+        alert(window.location.href);
     }
 }
 
