@@ -1273,6 +1273,18 @@ function removeElementsByClassName(className)
 
 
 
+
+
+function removeM1() {
+    const url = new URL(window.location.href);
+    if (url.searchParams.get('m') === '1') {
+        url.searchParams.delete('m'); // Remove m=1 
+        window.history.replaceState({}, document.title, url.pathname + url.search); // Keep other params
+    }
+}
+
+
+
 async function checkForSearchKeywords() // Check for keywords in the adressbar also used for the modal
 {
     let search = window.location.search;
@@ -1280,8 +1292,7 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     // If search keywords in the path
     if(search == '?m=1')
     {
-      search='';
-      window.location.search = '';
+      removeM1();
     }
 
     if (search !== '') {
