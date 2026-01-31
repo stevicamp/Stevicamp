@@ -1275,9 +1275,14 @@ function removeElementsByClassName(className)
 
 async function checkForSearchKeywords() // Check for keywords in the adressbar also used for the modal
 {
-    const search = window.location.search;
+    let search = window.location.search;
 
     // If search keywords in the path
+    if(search == '?m=1')
+    {
+      search='';
+    }
+
     if (search !== "") {
 alert(`${search}`);
         if (search.match("id_")) // If id_ than open modal
