@@ -1275,14 +1275,7 @@ function removeElementsByClassName(className)
 
 
 
-function removeM1() {
-    const url = new URL(window.location.href);
-    if (url.searchParams.get('m') === '1') {
-        url.searchParams.delete('m'); // Remove m=1 
-        window.history.replaceState({}, document.title, url.pathname + url.search); // Keep other params
-        alert(window.location.href);
-    }
-}
+ 
 
 
 
@@ -1291,13 +1284,7 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     let search = window.location.search;
 
     // If search keywords in the path
-    if(search == '?m=1')
-    {
-      removeM1();
-    }
-
     if (search !== '') {
-alert(`${search}`);
         if (search.match("id_")) // If id_ than open modal
         {
             const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
