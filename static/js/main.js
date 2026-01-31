@@ -39,7 +39,9 @@ import * as Boats from './views/Boats.js';
 function router(e) {
     // e = event || window.event;
     e.preventDefault(); // Prevent deafult behavior don't follow the link
-    window.history.pushState(null, null, e.target.href); // Add the url to the history api of js so we can navigate back and forth with the browser buttons
+    const url = new URL(e.target.href);
+    const path = url.pathname + url.search; // Only local path and search query since there is problem with blogger and the <base> url.
+    window.history.pushState(null, null, path); // Add the url to the history api of js so we can navigate back and forth with the browser buttons
     handleLocation();
 }
 
