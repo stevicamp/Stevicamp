@@ -267,6 +267,7 @@ async function itemModalNavigation(itemId) {
     showModal(itemId);
     // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
  
+    itemId = itemId ? itemId:''; // Because of blogger
     window.history.pushState({}, "", window.location.origin + `/?search=${itemId}`);
 }
 
@@ -1277,8 +1278,8 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     const search = window.location.search;
 
     // If search keywords in the path
-    if (search !== "" && search !== undefined) {
-alert('#Test 1 in ?search -' + `${search}`);
+    if (search !== "") {
+alert(`${search}`);
         if (search.match("id_")) // If id_ than open modal
         {
             const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
@@ -1288,7 +1289,6 @@ alert('#Test 1 in ?search -' + `${search}`);
         const searchKeyword = search.split('?search=')[1];
         let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
         await searchItems(e);
-
     }
 }
 
