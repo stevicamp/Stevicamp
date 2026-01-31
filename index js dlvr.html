@@ -1,10 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
-
-
-<!-- HEAD ------------------------------------------------------------------------------------------------------>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,23 +9,9 @@
 </head>
 
 
-
-
-<!--BODY------------------------------------------------------------------------------------------------------>
-
 <body class="main-body">
-
-    <!--HOLDER------ALL BARS HOLDER--------------------------------------------------------------------------->
     <div class="bars-holder">
-
-
-        <!--BARS-HOLDER--------------------------------------------------------------------------------------->
         <div class="main-bars-holder">
-
-
-
-            <!-- ######################### LEFT ############################################################ -->
-            <!--LEFT-BAR--------------------------------------------------------------------------------------->
             <div id="left-bar">
                 <a href="/Trailers" class="vertical-bar-content" data-link><img
                         src="https://cdn.jsdelivr.net/gh/stevicamp/Stevicamp@main/static/img/icons/trailer.png" /><br />Ремаркета </a>
@@ -52,21 +33,11 @@
             </div>
 
 
-            <!---TOGGLE LEFT-BAR-->
             <button id="left-bar-toggler" value="left-bar" class="button-toggle-vertical-bar">
                 <span class="toggler">‹‹</span>
             </button>
 
-
-
-
-
-
-            <!--:::::::::::::::::::::::MIDDLE :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
             <div class="center-wrapper">
-
-                <!-- ######################### TOP ######################################################### -->
-                <!--TOP-BAR------------------------------------------------------------------------------------>
                 <div id="top-bar">
                     <div id="top-bar-wrapper" class="horizontal-wrapper-container">
 
@@ -91,18 +62,13 @@
                 </div>
 
 
-                <!----TOGGLER--TOGGLE TOP-BAR-------------------------------------------------------------------->
                 <button id="top-bar-toggler" value="top-bar" class="button-toggle-horizontal-bar">
                     <span class="toggler rotate-m-180deg">››</span>
                 </button>
 
 
-
-                <!-- The items modal ---------------------------------------------------------------------------->
                 <div id="modalWindow"></div>
 
-                <!-- ######################### APP - CONTENT ################################################## -->
-                <!--APP - CONTENT--------------------------------------------------------------------------------->
                 <div class="content-bar">
                     <div class="content_container_holder">
                         <div class="content-container-holder-topbar">
@@ -112,27 +78,15 @@
                                     src="https://cdn.jsdelivr.net/gh/stevicamp/Stevicamp@main/static/img/icons/search.png" /><input id="current-items-search-input"
                                     class="search-input"></div>
                         </div>
-
                         <div id="app">
-
                         </div>
-
                     </div>
                 </div>
 
-
-
-
-
-
-                <!-- ######################### BOTTOM ######################################################## -->
-                <!---TOGGLER---TOGGLE BOTTOM-BAR----------------------------------------------------------------->
                 <button id="bottom-bar-toggler" value="bottom-bar" class="button-toggle-horizontal-bar">
                     <span class="toggler rotate-180deg">‹‹</span>
                 </button>
 
-
-                <!--BOTTOM-BAR----------------------------------------------------------------------------------->
                 <div id="bottom-bar">
                     <div id="bottom-bar-wrapper" class="horizontal-wrapper-container">
                         <div class="margin-auto">
@@ -152,44 +106,21 @@
                                     style=" border-radius: 5px;" src="https://cdn.jsdelivr.net/gh/stevicamp/Stevicamp@main/static/img/icons/phone.png" /><br />За връзка</a>
                             <a href="/About" class="horizontal-bar-content" data-link><img
                                     src="https://cdn.jsdelivr.net/gh/stevicamp/Stevicamp@main/static/img/icons/info.png" /><br />За Нас</a>
-
                         </div>
                     </div>
                 </div>
 
             </div>
 
-
-
-
-
-
-
-            <!-- ######################### RIGHT ############################################################# -->
-            <!------TOGGLER--TOGGLE RIGHT-BAR-------------------------------------------------------------------->
             <button id="right-bar-toggler" value="right-bar" class="button-toggle-vertical-bar">
                 <span class="toggler">››</span>
             </button>
 
-
-
-            <!--RIGHT-BAR---------------------------------------------------------------------------------------->
             <div id="right-bar">
-                <!-- <a href="/" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />HOME </a>
-                <a href="/Login" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />LOGIN</a>
-                <a href="/Profile" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />PROFILE</a>
-                <a href="/Register" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />REGISTER</a> -->
             </div>
-
-
         </div>
     </div>
-
-    <!--SPA - JS - Default scrips such as HTML show hide bars --------------------------------------------------------------------------------------->
     <script src="https://cdn.jsdelivr.net/gh/stevicamp/Stevicamp@main/static/js/resources/default_scripts.js"></script>
-    <!--SPA - JS - Routing --------------------------------------------------------------------------------------->
     <script type="module" src="https://cdn.jsdelivr.net/gh/stevicamp/Stevicamp@main/static/js/main.js"></script>
-
 </body>
-
 </html>
