@@ -1446,7 +1446,7 @@ async function searchItems(e) {
             window.history.replaceState({}, "title", window.location.origin);
         }
         else {
-            window.history.replaceState({}, "title", window.location.origin + window.location.pathname + `/?search=${searchTxt}`);
+            window.history.replaceState({}, "title", window.location.origin + `/?search=${searchTxt}`);
         }
         // window.history.replaceState( {} , "title", `?search=${searchTxt}`);
         let items = await recursiveSearchObj(db.items, searchTxt); // Search and get the matched items
