@@ -267,7 +267,7 @@ async function itemModalNavigation(itemId) {
     showModal(itemId);
     // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
 
-    window.history.pushState({}, "", `/?search=${itemId}`);
+    window.history.pushState({}, "", window.location.origin + `/?search=${itemId}`);
 }
 
 
@@ -1443,10 +1443,10 @@ async function searchItems(e) {
         }
         // window.location.pathname = '/index.html'; // Change to Home View path
         if (searchTxt == "") {
-            window.history.replaceState({}, "title", "/");
+            window.history.replaceState({}, "title", window.location.origin);
         }
         else {
-            window.history.replaceState({}, "title", `/?search=${searchTxt}`);
+            window.history.replaceState({}, "title", window.location.origin + window.location.pathname + `/?search=${searchTxt}`);
         }
         // window.history.replaceState( {} , "title", `?search=${searchTxt}`);
         let items = await recursiveSearchObj(db.items, searchTxt); // Search and get the matched items
