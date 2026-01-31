@@ -1219,11 +1219,8 @@ body {
 
      .bars-holder
     {
-    min-height: 90vh; /*Used for the mobile devices for the browser bottom bar, because it hides the bottom bar of the page */
-    max-height: 90vh;
-    padding: 0;
-    margin: 0;
-    top: 0;
+    min-height: 100dvh; /*Used for the mobile devices for the browser bottom bar, because it hides the bottom bar of the page */
+    max-height: 100dvh;
     }
 
     .modalItemContainer {
