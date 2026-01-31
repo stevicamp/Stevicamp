@@ -1219,8 +1219,8 @@ body {
 
      .bars-holder
     {
-    min-height: 95vh;
-    max-height: 95vh;
+    min-height: 90vh; /*Used for the mobile devices for the browser bottom bar, because it hides the bottom bar of the page */
+    max-height: 90vh;
     padding: 0;
     margin: 0;
     top: 0;
