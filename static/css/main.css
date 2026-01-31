@@ -1210,18 +1210,21 @@ body {
 @media screen and (min-width: 400px) {
     .logo {
         display: block;
-    }
-
-    html
-    {
-      padding-bottom: 50px;
-      box-sizing: border-box; 
-    }
+    } 
 }
 
 
 
 @media screen and (max-width: 850px) {
+
+     .bars-holder
+    {
+    min-height: 95vh;
+    max-height: 95vh;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    }
 
     .modalItemContainer {
         display: flex;
