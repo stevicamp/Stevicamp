@@ -1281,9 +1281,10 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     if(search == '?m=1')
     {
       search='';
+      window.location.search = '';
     }
 
-    if (search !== "") {
+    if (search !== '') {
 alert(`${search}`);
         if (search.match("id_")) // If id_ than open modal
         {
