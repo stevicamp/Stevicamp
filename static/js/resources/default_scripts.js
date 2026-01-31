@@ -266,7 +266,7 @@ async function itemModalNavigation(itemId) {
     prevUrl = window.location.href; // Used in closeItemModal so to return to original adress and have it in the history so to navigate with the browser buttons back forth
     showModal(itemId);
     // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
-
+ 
     window.history.pushState({}, "", window.location.origin + `/?search=${itemId}`);
 }
 
@@ -1278,7 +1278,7 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
 
     // If search keywords in the path
     if (search !== "" && search !== undefined) {
-
+alert('#Test 1 in ?search -' + `${search}`);
         if (search.match("id_")) // If id_ than open modal
         {
             const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
@@ -1399,11 +1399,12 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
 // Search - current items - when in ex. caravans View, Cars View, Prodicts View etc. ###########################################################################
 async function searchItems(e) {
     let db = await getDbAsync(); // Get the singleton db
-    var searchTxt = e.currentTarget.value; // Get the txt from the search textbox or the url depending on e
+    var searchTxt = e.currentTarget.value ? e.currentTarget.value : '';  // Handle also undefined seems there is problem with mobile devices search is undefined on load // Get the txt from the search textbox or the url depending on e
 
 
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
     var data = null;
+
 
     // Search if there is provided type "currentItemsType = caravans, cars etc."
     if (Object.hasOwn(db.items, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
