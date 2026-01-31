@@ -49,6 +49,7 @@ function router(e) {
 //Routes ------------ The defined routes of the SPA APP ---------------------------------------------------
 const routes = {
     '/': Home, // On Path "/" use the HomeView class and inject html in the #app div
+    '': Home,  
     '/Caravans': Caravans,
     '/Cars': Cars,
     '/Products': Products,
