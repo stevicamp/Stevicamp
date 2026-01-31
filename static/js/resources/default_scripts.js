@@ -1277,7 +1277,7 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     const search = window.location.search;
 
     // If search keywords in the path
-    if (search !== "") {
+    if (search !== "" && search !== undefined) {
 
         if (search.match("id_")) // If id_ than open modal
         {
