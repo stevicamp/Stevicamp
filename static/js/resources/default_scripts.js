@@ -1282,7 +1282,7 @@ function removeElementsByClassName(className)
 
 async function checkForSearchKeywords() // Check for keywords in the adressbar also used for the modal
 {
-    let search = window.location.search;
+         const search = decodeURI(window.location.search); // In order to work with cyrilic as well as to have clean link without encodings
 
     // If search keywords in the path
     if (search !== '') {
