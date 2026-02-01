@@ -1215,9 +1215,9 @@ body {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        max-height: 79dvh;
+        max-height: 80dvh;
         overflow-y: auto;
-         margin-top: -6svh;
+         margin-top: -5svh;
     }
 
 
