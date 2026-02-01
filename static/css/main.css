@@ -578,13 +578,12 @@ html {
 
 
 
-.contact-information
-{
+.contact-information {
     color: #ff6060;
     text-align: center;
     text-shadow: 2px 2px 2px black;
     font-weight: bold;
-    font-size:10px;
+    font-size: 10px;
     font-style: italic;
 }
 
@@ -827,26 +826,22 @@ h3 {
     text-shadow: 1px 1px #000000;
 }
 
-.modalItemDetails span:hover
-{
-  filter: drop-shadow(2px 2px 5px rgb(0, 153, 255));
+.modalItemDetails span:hover {
+    filter: drop-shadow(2px 2px 5px rgb(0, 153, 255));
 }
 
 
 
-.modalItemDetails a
-{
-  color:rgb(255, 70, 246);
-  text-decoration: none;
+.modalItemDetails a {
+    color: rgb(255, 70, 246);
+    text-decoration: none;
 }
 
-.modalItemDetails a:hover
-{
- color: #00ff4c;
+.modalItemDetails a:hover {
+    color: #00ff4c;
 }
 
-.hr-orange
-{ 
+.hr-orange {
     border: 1px solid rgb(255, 73, 73);
 }
 
@@ -945,21 +940,18 @@ h3 {
 
 
 /* // Transport services --------------------------------------------------------- */
-.transport-service-img
-{
+.transport-service-img {
     width: 70%;
     height: auto;
     text-align: center;
 }
 
-.transport-service-details u
-{
+.transport-service-details u {
     color: rgb(66, 215, 245);
 }
-  
-.transport-service-details b
-{
- color: #09ff00;
+
+.transport-service-details b {
+    color: #09ff00;
 }
 
 
@@ -968,22 +960,20 @@ h3 {
 
 /* About View Style............................................................ */
 
-.about
-{
-    text-align: left; padding: 10px;
+.about {
+    text-align: left;
+    padding: 10px;
     text-align: center;
     padding-top: 0;
 }
 
-.about hr
-{
-  width: 100%;
-  margin: 10px 0 10px 0;
+.about hr {
+    width: 100%;
+    margin: 10px 0 10px 0;
 }
 
 
-.about img
-{
+.about img {
     min-width: 20px;
     width: 3vw;
     max-width: 30px;
@@ -998,48 +988,45 @@ h3 {
     /* Standard syntax */
 }
 
-.about b
-{
-   color: #00e1ff; 
+.about b {
+    color: #00e1ff;
 }
 
-.about a
-{
+.about a {
     text-decoration: none;
 }
 
 
 
 
-.about-logo
-{
+.about-logo {
     vertical-align: middle;
     width: 50px;
     height: auto;
 }
 
 
-.about-location-details
-{
+.about-location-details {
     color: lime;
 }
- 
 
 
 
-.goog-te-gadget img{
-    display:none !important;
+
+.goog-te-gadget img {
+    display: none !important;
 }
-body > .skiptranslate {
+
+body>.skiptranslate {
     display: none;
 }
+
 body {
     top: 0px !important;
 }
 
 
-.goog-te-combo
-{
+.goog-te-combo {
     width: 100px;
     background-color: #302b36;
     color: rgb(255, 187, 59);
@@ -1047,13 +1034,13 @@ body {
     font-weight: bold;
 }
 
- 
-.translateAlign
-{
+
+.translateAlign {
     display: flex;
     flex-flow: row;
     width: fit-content;
 }
+
 /*######################### Custom Scrollbar #########################################################*/
 ::-webkit-scrollbar {
     min-width: 100%;
@@ -1192,7 +1179,7 @@ body {
     background-color: rgb(81, 82, 83);
 }
 
- 
+
 
 
 
@@ -1210,24 +1197,27 @@ body {
 @media screen and (min-width: 400px) {
     .logo {
         display: block;
-    } 
+    }
 }
 
 
 
 @media screen and (max-width: 850px) {
 
-     .bars-holder
-    {
-    min-height: 100dvh; /*Used for the mobile devices for the browser bottom bar, because it hides the bottom bar of the page */
-    max-height: 100dvh;
+    .bars-holder {
+        min-height: 100dvh;
+        /*Used for the mobile devices for the browser bottom bar, because it hides the bottom bar of the page */
+        max-height: 100dvh;
     }
 
-     .modalContentContainer
-     {
+    .modalContentContainer {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         max-height: 75dvh;
-        top: 10dvh;
-     }
+        overflow-y: auto;
+    }
 
 
     .modalItemContainer {
@@ -1257,5 +1247,3 @@ body {
 
     }
 }
-
-
