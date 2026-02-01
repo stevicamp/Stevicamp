@@ -1226,6 +1226,7 @@ body {
      .modalContentContainer
      {
         max-height: 75dvh;
+        top: 25%;
      }
 
 
