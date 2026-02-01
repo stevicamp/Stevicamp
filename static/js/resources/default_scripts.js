@@ -293,7 +293,7 @@ function modalItemShareButtonsHtml(itemLink, title) {
 
 // Phone number and viber number --------------------------------------------------------------------------
 function phoneViberNumberInfoHtml(phone, viberPhone) {
-    return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:${phone}"><img src="static/img/icons/phone.png"><font size="2"><b>Тел: </b><u>${phone}</u></font></a></span>
+    return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:00359${phone}"><img src="static/img/icons/phone.png"><font size="2"><b>Тел: </b><u>${phone}</u></font></a></span>
     <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${viberPhone}"><img src="static/img/icons/viber.png"><font size="2"><b>Вайбър: </b>+<u>${viberPhone}</u></font></a></span>
 `;
 }
