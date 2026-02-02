@@ -1386,13 +1386,13 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
          <span class="price">${item.price} €</span>
 
          <div class="item_buttons_wrapper"> 
-             <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');"></a>
+             <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');">&nbsb;</a>
              <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
-                 href="viber://forward?text=${itemLink}"></a>
+                 href="viber://forward?text=${itemLink}">&nbsb;</a>
              <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');"
-             target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}"></a>
+             target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}">&nbsb;</a>
              <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
-                 href="fb-messenger://share/?link=${itemLink}"></a>
+                 href="fb-messenger://share/?link=${itemLink}">&nbsb;</a>
          </div>
         
          </div>`);

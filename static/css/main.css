@@ -658,7 +658,8 @@ html {
     width: 35px;
     height: 35px;
     border-radius: 5px;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
     /* float: right;
     margin-right: 8px; */
     /* margin-right: 7px; */
