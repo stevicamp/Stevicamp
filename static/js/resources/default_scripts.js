@@ -1390,9 +1390,9 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
              <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
                  href="javascript::void(0)" onclick="window.location.href = 'viber://forward?text=${itemLink}'"></a>
              <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');"
-             target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}"></a>
+             target="_blank" rel="noopener noreferrer" href="javascript::void(0)" onclick="window.location.href = 'https://api.whatsapp.com/send?text=${itemLink}'"></a>
              <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
-                 href="fb-messenger://share/?link=${itemLink}"></a>
+                 href="javascript::void(0)" onclick="window.location.href = 'fb-messenger://share/?link=${itemLink}'"></a>
          </div>
         
          </div>`);
