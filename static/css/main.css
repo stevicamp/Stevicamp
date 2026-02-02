@@ -800,9 +800,9 @@ h3 {
 
 
 .modalItemDetails img {
-    min-width: 30px;
+    min-width: 20px;
     width: 4vw;
-    max-width: 40px;
+    max-width: 35px;
     height: auto;
     vertical-align: middle;
     margin-right: 5px;
