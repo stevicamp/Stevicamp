@@ -1231,13 +1231,13 @@ body {
     }
 
     .img-preview-container {
-        height: 70%;
+        height: 60%;
     }
 
     .modalItemDetails {
         max-width: 100%;
         min-width: 100%;
-        height: 30%;
+        height: 40%;
         width: 100%;
         border: 2px solid rgb(78, 130, 182);
         border-top: 3px solid rgb(78, 130, 182);
