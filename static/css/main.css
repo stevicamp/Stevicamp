@@ -800,9 +800,9 @@ h3 {
 
 
 .modalItemDetails img {
-    min-width: 20px;
-    width: 3vw;
-    max-width: 30px;
+    min-width: 30px;
+    width: 4vw;
+    max-width: 40px;
     height: auto;
     vertical-align: middle;
     margin-right: 5px;
@@ -821,7 +821,7 @@ h3 {
 .modalItemDetails span {
     margin: 5px 0 5px 5px;
     filter: drop-shadow(4px 4px 4px rgb(0, 0, 0));
-    font-size: clamp(0.87rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 1.4rem);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-shadow: 1px 1px #000000;
 }
