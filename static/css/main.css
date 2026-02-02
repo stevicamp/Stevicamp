@@ -1248,7 +1248,7 @@ body {
         /* max-width: 100%; */ 
     }
      
-    .modalItemDetails span u {
+    .modalItemDetails span, .modalItemDetails span u {
     margin: 5px 0 5px 5px;
     filter: drop-shadow(4px 4px 4px rgb(0, 0, 0));
     font-size: clamp(1rem, 2vw, 1.4rem);
