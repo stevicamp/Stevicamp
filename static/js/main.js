@@ -41,7 +41,7 @@ function router(e) {
     e.preventDefault(); // Prevent deafult behavior don't follow the link
     const url = new URL(e.target.href);
     url.searchParams.delete('fbclid'); // remove the meesanger clid since it breaks the routing
-    const path = url.pathname; // Only local path since there is problem with blogger and the <base> url.
+    const path = url.pathname + url.search; // Only local path since there is problem with blogger and the <base> url.
     window.history.pushState(null, null, window.location.origin + path); // Add the url to the history api of js so we can navigate back and forth with the browser buttons
     handleLocation();
 }
