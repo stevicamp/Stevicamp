@@ -1255,4 +1255,12 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-shadow: 1px 1px #000000;
 }
+
+.modalItemDetails img {
+    min-width: 30px;
+    width: 4vw;
+    max-width: 40px;
+}
+
+
 }
