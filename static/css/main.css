@@ -821,7 +821,7 @@ h3 {
 .modalItemDetails span {
     margin: 5px 0 5px 5px;
     filter: drop-shadow(4px 4px 4px rgb(0, 0, 0));
-    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-size: clamp(0.87rem, 2vw, 1rem);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-shadow: 1px 1px #000000;
 }
@@ -1229,6 +1229,7 @@ body {
         max-height: 100%;
     }
 
+    
     .img-preview-container {
         min-height: 50%;
         max-height: 50%;
@@ -1247,4 +1248,11 @@ body {
         /* max-width: 100%; */ 
     }
      
+    .modalItemDetails span u {
+    margin: 5px 0 5px 5px;
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0));
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px #000000;
+}
 }
