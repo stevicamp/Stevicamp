@@ -662,7 +662,9 @@ html {
     /* float: right;
     margin-right: 8px; */
     /* margin-right: 7px; */
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+     background-position: center;
     filter: drop-shadow(2px 4px 1px rgb(0, 0, 0));
 }
 
