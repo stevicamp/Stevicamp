@@ -279,12 +279,12 @@ function modalItemShareButtonsHtml(itemLink, title) {
     return `<div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
                         min-width: 100%; text-align:center; background-color: transparent;"> 
 
-     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Натиснете за да Копирате линка">&nbsp;</a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Споделете във Вибър">&nbsp;</a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Споделете в Уатсап">&nbsp;</a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър">&nbsp;</a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title},${itemLink}" title="Пратете по имейл">&nbsp;</a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/sms.png');" href="sms:?&body=${title},${itemLink}" title="Пратете по СМС">&nbsp;</a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Натиснете за да Копирате линка"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Споделете във Вибър"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Споделете в Уатсап"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title},${itemLink}" title="Пратете по имейл"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/sms.png');" href="sms:?&body=${title},${itemLink}" title="Пратете по СМС"></a>
 
     <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
     </div>`;
@@ -1386,13 +1386,13 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
          <span class="price">${item.price} €</span>
 
          <div class="item_buttons_wrapper"> 
-             <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');"></a>
+             <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');">&nbsp;</a>
              <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
-                 href="viber://forward?text=${itemLink}"></a>
+                 href="viber://forward?text=${itemLink}">&nbsp;</a>
              <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');"
-             target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}"></a>
+             target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}">&nbsp;</a>
              <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
-                 href="fb-messenger://share/?link=${itemLink}"></a>
+                 href="fb-messenger://share/?link=${itemLink}">&nbsp;</a>
          </div>
         
          </div>`);
