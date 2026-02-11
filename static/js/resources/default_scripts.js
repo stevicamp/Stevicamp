@@ -16,7 +16,7 @@ var popStateUrl = false;
 async function getDbAsync() {
     if (base_db == null) {
         // var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp/resources/db/database.json?1', {cache: "reload"})
-        var jsDb = await fetch(`https://api.github.com/repos/stevicamp/StevicampStorage/contents/resources/db/database.json`, { cache: "no-store" })
+        var jsDb = await fetch(`https://raw.githubusercontent.com/stevicamp/StevicampStorage/refs/heads/main/resources/db/database.json`, { cache: "no-store" })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
