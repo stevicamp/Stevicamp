@@ -94,13 +94,13 @@ window.addEventListener("popstate", handleLocation); // On popstate "If back but
 
 // window.addEventListener('pushstate', handleLocation); // on location change handle the location, so view is updated
 
-document.getElementById('app').style.overflow = "auto"; // Overflow for the app container otherwise sometimes it hidden
 
 // Listen for document fully Loaded
 document.addEventListener("DOMContentLoaded", () => { // On Dom loaded add bodyEventlistener to listen for click in the body
     document.body.addEventListener("click", e => { //Listen for click in the body
         if (e.target.closest("[data-link]")) {  // If body item was clicked and it is data-link decorated 
             router(e); // Load the content if the url is defined in our "Spa Urls"
+            document.getElementById('app').style.overflow = "auto"; // Overflow for the app container otherwise sometimes it hidden
         }
     });
 });
