@@ -7,7 +7,7 @@ import * as Common from "./Common.js"
 export async function getHtmlAsync() {
     let db =  await getDbAsync();
     return  ` </br>
-    <font size ="1"><i>Ако преглеждате сайта от телефон, натиснете върху дадения телефон за да звъннете, автоматично.</i></font>
+    <font size ="1"><i>Ако преглеждате сайта от телефон, натиснете върху дадения телефон за да звъннете автоматично или на вайбър телефона за да отоврите вайбър контакта автоматично.</i></font>
     </br>
     <div class="about">${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}</div>
     <hr>`;

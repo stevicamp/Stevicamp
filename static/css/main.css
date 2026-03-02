@@ -968,11 +968,11 @@ h3 {
 
 /* About View Style............................................................ */
 
-.about {
-    text-align: left;
+.about { 
     padding: 10px;
     text-align: center;
     padding-top: 0;
+    line-height: 3;
 }
 
 .about hr {
@@ -982,9 +982,9 @@ h3 {
 
 
 .about img {
-    min-width: 20px;
+    min-width: 30px;
     width: 3vw;
-    max-width: 30px;
+    max-width: 40px;
     height: auto;
     vertical-align: middle;
     margin-right: 5px;
@@ -1000,10 +1000,15 @@ h3 {
     color: #00e1ff;
 }
 
+.about font {
+    font-size: 1.5rem;
+}
+
 .about a {
     text-decoration: none;
 }
 
+ 
 
 
 
