@@ -42,7 +42,7 @@ export async function getHtmlAsync() {
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
 
        <hr>
-       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <span> Бележка: Този сайт е пробен.</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <span class="color-lime">
