@@ -1160,7 +1160,7 @@ async function closeItemModal(e) {
     // prevUrl ="";
     // history.go(-1);
     modalImgIndex = 0; // Reset the image tab index on modal close
-    document.getElementById("app").style.overflowY = "auto"; // Reset the overflow for the app, so it can be scrolled
+    document.getElementById("app").style.overflow = "auto"; // Reset the overflow for the app, so it can be scrolled
 
     removeElementsByClassName('slide'); // Remove image elements of specific item on close modal
 }
