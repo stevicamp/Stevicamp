@@ -38,7 +38,7 @@ export async function getHtmlAsync() {
    <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
    
    <hr> 
-   <p class="contact-information">Ако преглеждате сайта от телефон, натиснете върху дадения телефон за да звъннете, автоматично.</p>
+   <p class="contact-information">Ако преглеждате сайта от телефон, натиснете върху дадения телефон за да звъннете автоматично или на вайбър телефона за та отоврите вайбър контакта автоматично.</p>
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
 
        <hr>
