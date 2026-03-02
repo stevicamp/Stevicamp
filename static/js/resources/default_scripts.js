@@ -1288,7 +1288,8 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     if (search !== '') {
         if (search.match("id_")) // If id_ than open modal
         {
-            const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
+            const rawItemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is part of every id 
+            const itemId = rawItemId.replaceAll("+", " "); // Because of the mobile it adds + instead of empty spaces if there are empty spaces
             await showModal(itemId);
         }
 
