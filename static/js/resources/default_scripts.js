@@ -167,7 +167,7 @@ window.addEventListener('popstate', closeItemModalOnPopState);
 
 
 // Translate -----------------------------------------------------------
-document.getElementById('translate').addEventListener("click", initTranlate); 
+document.getElementById('translate').addEventListener("click", initTranlate);
 
 
 // Listen for keypress ..............................................................................
@@ -266,8 +266,8 @@ async function itemModalNavigation(itemId) {
     prevUrl = window.location.href; // Used in closeItemModal so to return to original adress and have it in the history so to navigate with the browser buttons back forth
     showModal(itemId);
     // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
- 
-    itemId = itemId ? itemId:''; // If Id empty
+
+    itemId = itemId ? itemId : ''; // If Id empty
     window.history.pushState({}, "", window.location.origin + `/?search=${itemId}`);
 }
 
@@ -299,20 +299,17 @@ function phoneViberNumberInfoHtml(phone, viberPhone) {
 }
 
 
-function htmlItemSold(item)
-{
-  if(item.sold == "true")
-  {
-     return `<hr><span><b><font size="6"><i class="red">Продадено</i></font></b></span>`;
-  } 
-  else
-  {
-    return ``;
-  }
+function htmlItemSold(item) {
+    if (item.sold == "true") {
+        return `<hr><span><b><font size="6"><i class="red">Продадено</i></font></b></span>`;
+    }
+    else {
+        return ``;
+    }
 }
 
 
- 
+
 
 
 
@@ -327,11 +324,10 @@ function imgSlideArrowButtons() {
 
 
 // Generate link from obj for the view - used in the view
-function generateLinkFromObj(obj)
-{
-      const url = new URL(window.location.origin); // .origin instead of .host because of the https:// if using host it is without the https://
-            url.searchParams.set('search', obj.id);
-  return url.toString();
+function generateLinkFromObj(obj) {
+    const url = new URL(window.location.origin); // .origin instead of .host because of the https:// if using host it is without the https://
+    url.searchParams.set('search', obj.id);
+    return url.toString();
 }
 
 
@@ -1144,8 +1140,8 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     toggleModalImg(0);
 
     document.getElementById("app").style.overflow = "hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
-    document.getElementById('arrow-leftSlideImg')?.addEventListener('click', async () => {toggleModalImg(-1) }); // The img slide left button
-    document.getElementById('arrow-rightSlideImg')?.addEventListener('click', async () => {toggleModalImg(1) }); // The img slide right button
+    document.getElementById('arrow-leftSlideImg')?.addEventListener('click', async () => { toggleModalImg(-1) }); // The img slide left button
+    document.getElementById('arrow-rightSlideImg')?.addEventListener('click', async () => { toggleModalImg(1) }); // The img slide right button
 }
 
 
@@ -1165,7 +1161,7 @@ async function closeItemModal(e) {
     // history.go(-1);
     modalImgIndex = 0; // Reset the image tab index on modal close
     document.getElementById("app").style.overflowY = "auto"; // Reset the overflow for the app, so it can be scrolled
-    
+
     removeElementsByClassName('slide'); // Remove image elements of specific item on close modal
 }
 
@@ -1239,7 +1235,7 @@ document.getElementById('modalWindow').addEventListener('touchend', e => {
 var modalImgIndex = 0; // Hold track of the current img index - showed image
 
 function toggleModalImg(n) {
-    
+
     let images = document.getElementsByClassName("slide"); // Get the images
 
     if (images.length !== 1) {
@@ -1266,8 +1262,7 @@ function toggleModalImg(n) {
 }
 
 // Used to remove image elements so the about slide can work - otherwise it interfers - this is used on close modal
-function removeElementsByClassName(className)
-{
+function removeElementsByClassName(className) {
     const elements = document.getElementsByClassName(className);
     while (elements.length > 0) elements[0].remove();
 }
@@ -1276,24 +1271,30 @@ function removeElementsByClassName(className)
 
 
 
- 
+
 
 
 
 async function checkForSearchKeywords() // Check for keywords in the adressbar also used for the modal
 {
-         const search = decodeURI(window.location.search); // In order to work with cyrilic as well as to have clean link without encodings
+    const search = decodeURI(window.location.search); // In order to work with cyrilic as well as to have clean link without encodings
 
     // If search keywords in the path
-    if (search !== '') {
-        if (search.match("id_")) // If id_ than open modal
+    if (search !== '' && search.includes('?search=')) // the search parameter is after ? and we need ?search=  {
+    {
+        const rawValue = search.split('?search=')[1];
+        if (!rawValue) return; // Safety check
+
+        const searchKeyword = rawValue.replaceAll("+", " ");
+
+        if (searchKeyword.includes("id_")) // If id_ than open modal
         {
-            const rawItemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is part of every id 
-            const itemId = rawItemId.replaceAll("+", " "); // Because of the mobile it adds + instead of empty spaces if there are empty spaces
-            await showModal(itemId);
+            // If it includes id_ than after the search is the id including id_ it is part of every id 
+            // Because on mobile it adds + instead of empty spaces if there are empty spaces, here the + is rplaced with " "
+            await showModal(searchKeyword);
         }
 
-        const searchKeyword = search.split('?search=')[1];
+         
         let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
         await searchItems(e);
     }
@@ -1364,8 +1365,8 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
         // itemsList = Object.entries(db).map(([key, value]) => {[key],[value]});
         itemsList = db.items;
     }
-     
-    
+
+
     // Use of string for better performance instead of using .innerHTML += 
     let combined_items = ''; // Holder of the items, that are constructed and put in this variable
     const allItems = Object.values(itemsList).flat().filter(Boolean); // Merge the categories in one array // .flat() removes one level of nesting from an array // .filter(Boolean); if category is empty prevents undefined
@@ -1373,9 +1374,9 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
 
     for (let i = 0; i < allItems.length; i++) {
         const item = allItems[i];
-   
-         const imgSrc = item.photos?.[0] ?? 'static/img/no-image.png';
-         const itemLink = `${window.location.origin}?search=${item.id}`; // Holder for the constructing of a link for every item 
+
+        const imgSrc = item.photos?.[0] ?? 'static/img/no-image.png';
+        const itemLink = `${window.location.origin}?search=${item.id}`; // Holder for the constructing of a link for every item 
 
         // For every iteration there is constructed item an put in the variable "combined_items".
         combined_items += (`<div class="content_container_item">
@@ -1660,8 +1661,7 @@ async function searchArray(arr, match) {
 
 
 // Check day difference ------------------------------------------------------------------------------------------
-function checkDiffDays(date1, date2) 
-{ 
+function checkDiffDays(date1, date2) {
     const oneDayInMilliseconds = 24 * 3600 * 1000; // One day in miliseconds
 
     const diffInMilliseconds = new Date(date1).getTime() - new Date(date2).getTime(); // Difference in miliseconds between the two dates
@@ -1720,68 +1720,67 @@ function checkDiffDays(date1, date2)
 
 // Google tranlate ------------------------------------------------------ 
 function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'bg'}, 'google_translate_element');
-  }
+    new google.translate.TranslateElement({ pageLanguage: 'bg' }, 'google_translate_element');
+}
 
 
 let tranlating = false;
 function initTranlate() {
 
     if (tranlating == false) {
-         
+
         // Start translating -----------------------------------------------------------------------------------------
         // Load dynamic script - google tranlate script load dynamic
-            var translateScript = document.createElement("script");
-            translateScript.type = "text/javascript";
-            translateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-            translateScript.id ='googleTranslateScript';
-            translateScript.onload = function(){
-                // alert("Script is ready!"); 
+        var translateScript = document.createElement("script");
+        translateScript.type = "text/javascript";
+        translateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        translateScript.id = 'googleTranslateScript';
+        translateScript.onload = function () {
+            // alert("Script is ready!"); 
             //     var trnalateDropdown = document.getElementById(":0.targetLanguage"); // Get the dropdown
             // document.getElementById('translate').innerHTML+=`${trnalateDropdown}`;
-                
-            };
-            document.body.appendChild(translateScript); // Append the script
-            tranlating = true; 
- 
-            // Change Translate button icon and txt
-            let tranlateImg = document.getElementById('translateStatusImg');
-            tranlateImg.src = 'static/img/icons/translating.png';// Change tranlate icon on the <a>
 
-            let tranlateLinkButton = document.getElementById('translate'); 
-            tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Reset`; 
-            tranlateLinkButton.style.color = "red"; 
+        };
+        document.body.appendChild(translateScript); // Append the script
+        tranlating = true;
+
+        // Change Translate button icon and txt
+        let tranlateImg = document.getElementById('translateStatusImg');
+        tranlateImg.src = 'static/img/icons/translating.png';// Change tranlate icon on the <a>
+
+        let tranlateLinkButton = document.getElementById('translate');
+        tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Reset`;
+        tranlateLinkButton.style.color = "red";
     }
     else // Stop Translate
     {
-    //   document.getElementById('translateStatusImg').src = 'static/img/icons/translate.png'; // Change the img to blue not tranlating
+        //   document.getElementById('translateStatusImg').src = 'static/img/icons/translate.png'; // Change the img to blue not tranlating
 
-      let translateScript = document.getElementById('googleTranslateScript'); // Get the script
-      translateScript.remove(); 
-      document.getElementById('google_translate_element').innerHTML ="";
-
-
-      var trnalateIframe = document.getElementById(":1.container"); // Get the google tranlate iframe - that is hidden with css in the top of the window
-      if(trnalateIframe !== null)
-      {
-          trnalateIframe.contentWindow.document.getElementById(':1.restore').click(); // Get the restore to original language button and simulate click
-      }
-      document.getElementById(":0.targetLanguage").innerHTML ="";
-      
-
-      // Resete tranlate button img and text
-      let tranlateImg = document.getElementById('translateStatusImg');
-      tranlateImg.src = 'static/img/icons/translate.png';// Change tranlate icon on the <a>
-
-      let tranlateLinkButton = document.getElementById('translate');
-      tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Translate`; 
-      tranlateLinkButton.style.color = '';
+        let translateScript = document.getElementById('googleTranslateScript'); // Get the script
+        translateScript.remove();
+        document.getElementById('google_translate_element').innerHTML = "";
 
 
-      tranlating = false; // Change the status
+        var trnalateIframe = document.getElementById(":1.container"); // Get the google tranlate iframe - that is hidden with css in the top of the window
+        if (trnalateIframe !== null) {
+            trnalateIframe.contentWindow.document.getElementById(':1.restore').click(); // Get the restore to original language button and simulate click
+        }
+        document.getElementById(":0.targetLanguage").innerHTML = "";
+
+
+        // Resete tranlate button img and text
+        let tranlateImg = document.getElementById('translateStatusImg');
+        tranlateImg.src = 'static/img/icons/translate.png';// Change tranlate icon on the <a>
+
+        let tranlateLinkButton = document.getElementById('translate');
+        tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Translate`;
+        tranlateLinkButton.style.color = '';
+
+
+        tranlating = false; // Change the status
     }
 
-    
 
-    
+
+
 }
