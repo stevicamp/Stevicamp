@@ -368,8 +368,15 @@ html {
 }
 
 
+.font-Size-8
+{
+    font-size: 8px;
+}
 
-
+.wrap-all
+{
+    word-break: break-all;
+}
 
 
 /* LINKS CSS - STYLES - for Content bar ======================================================================================*/

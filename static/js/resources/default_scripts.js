@@ -433,6 +433,8 @@ async function caravansHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr> 
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -523,6 +525,8 @@ async function carsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr> 
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -613,6 +617,8 @@ async function microbusHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span> 
        <hr>
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -678,6 +684,8 @@ async function scootersHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr> 
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -747,6 +755,8 @@ async function trailersHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr> 
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -824,6 +834,8 @@ async function wheelsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr> 
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -884,6 +896,8 @@ async function productsHtmlTemplate(obj) {
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
        <hr>
    </div>
 </div>`;
@@ -949,6 +963,8 @@ async function equipmentHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr>
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
+       <hr>
    </div>
 </div>`;
 }
@@ -1010,6 +1026,8 @@ async function appliancesHtmlTemplate(obj) {
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
        <hr>
    </div>
 </div>`;
@@ -1079,6 +1097,8 @@ async function boatsHtmlTemplate(obj) {
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+       <span><img src="static/img/icons/link.png"> <a class="font-Size-8 wrap-all" href="${itemLink}">${itemLink}</a></span>
        <hr>
    </div>
 </div>`;
