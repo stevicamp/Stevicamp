@@ -1154,8 +1154,9 @@ async function showModal(itemId) // Show modal is used so when navigating trough
 
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 
-    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`;
+    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div><img class="closeModalIcoBtn" src="static/img/icons/close.png"/>`;
     modal.style.display = 'flex'; // Show modal 
+    modal.style.flexDirection = 'column';
     // modal.tabIndex = 1;
     // modal.focus();
     toggleModalImg(0);
