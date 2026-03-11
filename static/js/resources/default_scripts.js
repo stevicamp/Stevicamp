@@ -1208,11 +1208,11 @@ let touchendX = 0
 function checkDirection() {
     // Left .....................
     if (touchendX < touchstartX && (touchstartX - touchendX) > 50) {
-        toggleModalImg(-1);
+        toggleModalImg(1);
     }
     else if (touchendX > touchstartX && (touchendX - touchstartX) > 50) // Right ..................
     {
-        toggleModalImg(1);
+        toggleModalImg(-1);
     }
 
 }
