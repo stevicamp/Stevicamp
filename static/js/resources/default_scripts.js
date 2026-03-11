@@ -47,9 +47,10 @@ loadMainBarsState();
 // TOGGLE BARS ========================================================================================
 function toggleBars(e) {
     let current = e.currentTarget;
-    let currentBar = document.getElementById(current.value); // The toggler buttons have assigned value for the specific bar they need to toggle ex. toggler value for topbar is value="top-bar", the toggler id is id="top-bar-toggler" than later evt. you can use the value "top-bar"+"toggler" to get the toggler, but in this case we just pass it to the next funktion to use it insteat of doing getElement
+    let currentBar = document.getElementById(current.value); // The toggler buttons have assigned value for the specific bar they need to toggle ex. toggler value for topbar is value="top-bar", the toggler id is id="top-bar-toggler" than later evt. you can use the value "top-bar"+"toggler" to get the toggler, but in this case we just pass it to the next function to use it insteat of doing getElement
 
-    if (currentBar.style.display === 'none') {
+    
+    if (window.getComputedStyle(currentBar).display === 'none') {
         currentBar.style.display = 'block';
         localStorage.setItem(currentBar.id, 'block'); // Save bar state to local storage 
     }
