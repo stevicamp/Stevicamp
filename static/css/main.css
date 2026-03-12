@@ -363,12 +363,12 @@ html {
 .closeModalIcoBtn {
     
     margin-top:auto;
-    margin-bottom: 3vh;
+    margin-bottom: 3.5dvh;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    width: 7vh;
-    height: 7vh;
+    width: 7dvh;
+    height: 7dvh;
     max-width: 35px;
     max-height: 35px;
     pointer-events: none;
@@ -1294,6 +1294,21 @@ body {
     min-width: 30px;
     width: 4vw;
     max-width: 40px;
+}
+
+
+.closeModalIcoBtn {
+    
+    margin-top:auto;
+    margin-bottom: 6dvh;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 7dvh;
+    height: 7dvh;
+    max-width: 35px;
+    max-height: 35px;
+    pointer-events: none;
 }
 
 }
