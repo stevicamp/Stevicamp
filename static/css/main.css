@@ -1221,7 +1221,7 @@ body {
 
 /* Media Styles ----------------------------------------------------------------- */
 
-@media screen and (min-width: 401px) and (max-width: 850px) {
+@media screen and (max-width: 850px) {
 
     .bars-holder {
         min-height: 100dvh;
@@ -1303,7 +1303,7 @@ body {
 }
 
 /* If window size is over 400px, then show logo otherwise dont show */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
     .logo {
         display: block;
     }   
