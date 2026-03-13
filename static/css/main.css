@@ -1220,31 +1220,6 @@ body {
 
 
 /* Media Styles ----------------------------------------------------------------- */
-/* LOGO (Hide Logo when the view is small [Mobile devices]) ======================================================================================================================================================*/
-.logo {
-    display: none;
-}
-
-/* If window size is over 400px, then show logo otherwise dont show */
-@media screen and (max-width: 400px) {
-    .logo {
-        display: block;
-    }   
-
-    .closeModalIcoBtn {
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 7dvh;
-    height: 7dvh;
-    max-width: 35px;
-    max-height: 35px;
-    pointer-events: none; 
-    margin-bottom: calc(8svh + env(safe-area-inset-bottom));
-}
-}
-
 
 @media screen and (min-width: 401px) and (max-width: 850px) {
 
@@ -1322,7 +1297,30 @@ body {
 }
 }
 
+/* LOGO (Hide Logo when the view is small [Mobile devices]) ======================================================================================================================================================*/
+.logo {
+    display: none;
+}
 
+/* If window size is over 400px, then show logo otherwise dont show */
+@media screen and (max-width: 400px) {
+    .logo {
+        display: block;
+    }   
+
+    .closeModalIcoBtn {
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 7dvh;
+    height: 7dvh;
+    max-width: 35px;
+    max-height: 35px;
+    pointer-events: none; 
+    margin-bottom: calc(8svh + env(safe-area-inset-bottom));
+}
+}
 
 
 
