@@ -1232,7 +1232,16 @@ body {
     }   
 
     .closeModalIcoBtn {
-     margin-bottom: calc(8svh + env(safe-area-inset-bottom));
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 7dvh;
+    height: 7dvh;
+    max-width: 35px;
+    max-height: 35px;
+    pointer-events: none; 
+    margin-bottom: calc(8svh + env(safe-area-inset-bottom));
 }
 }
 
@@ -1300,7 +1309,16 @@ body {
 
 
   .closeModalIcoBtn {
-     margin-bottom: 10dvh;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 7dvh;
+    height: 7dvh;
+    max-width: 35px;
+    max-height: 35px;
+    pointer-events: none;
+    margin-bottom: 10dvh;
 }
 }
 
