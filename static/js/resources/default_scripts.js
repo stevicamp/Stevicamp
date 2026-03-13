@@ -1158,7 +1158,7 @@ async function showModal(itemId) // Show modal is used so when navigating trough
 
     let closeBtn = document.createElement("img");
     closeBtn.className = "closeModalIcoBtn";
-    closeBtn.src = window.location.origin + "/static/img/icons/close.png";
+    closeBtn.src = "static/img/icons/close.png";
     modal.appendChild(closeBtn);
 
 
