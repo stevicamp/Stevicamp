@@ -49,7 +49,7 @@ function toggleBars(e) {
     let current = e.currentTarget;
     let currentBar = document.getElementById(current.value); // The toggler buttons have assigned value for the specific bar they need to toggle ex. toggler value for topbar is value="top-bar", the toggler id is id="top-bar-toggler" than later evt. you can use the value "top-bar"+"toggler" to get the toggler, but in this case we just pass it to the next function to use it insteat of doing getElement
 
-    
+
     if (window.getComputedStyle(currentBar).display === 'none') {
         currentBar.style.display = 'block';
         localStorage.setItem(currentBar.id, 'block'); // Save bar state to local storage 
@@ -296,7 +296,7 @@ function modalItemShareButtonsHtml(itemLink, title) {
 function phoneViberNumberInfoHtml(phone, viberPhone) {
     return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:00359${phone.substring(1)}"><img src="static/img/icons/phone.png"><font size="3"><b>Телефон: </b><u>${phone}</u></font></a></span></br>
     <span title="Натиснете за да пишете на Вайбър"><a href="viber://add?number=${viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${viberPhone}</u></font></a></span>
-`;  
+`;
 }
 
 
@@ -1154,7 +1154,14 @@ async function showModal(itemId) // Show modal is used so when navigating trough
 
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 
-    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div><img class="closeModalIcoBtn" src="static/img/icons/close.png"/>`;
+    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`;
+
+    let closeBtn = document.createElement("img");
+    closeBtn.className = "closeModalIcoBtn";
+    closeBtn.src = window.location.origin + "/static/img/icons/close.png";
+    modal.appendChild(closeBtn);
+
+
     modal.style.display = 'flex'; // Show modal 
     modal.style.flexDirection = 'column';
     // modal.tabIndex = 1;
@@ -1164,6 +1171,8 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     document.getElementById("app").style.overflow = "hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
     document.getElementById('arrow-leftSlideImg')?.addEventListener('click', async () => { toggleModalImg(-1) }); // The img slide left button
     document.getElementById('arrow-rightSlideImg')?.addEventListener('click', async () => { toggleModalImg(1) }); // The img slide right button
+
+
 }
 
 
@@ -1316,7 +1325,7 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
             await showModal(searchKeyword);
         }
 
-         
+
         let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
         await searchItems(e);
     }
