@@ -1318,7 +1318,7 @@ body {
     max-width: 35px;
     max-height: 35px;
     pointer-events: none; 
-    margin-bottom: calc(16svh + env(safe-area-inset-bottom));
+    margin-bottom: calc(25svh + env(safe-area-inset-bottom));
 }
 }
 
