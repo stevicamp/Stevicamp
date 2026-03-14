@@ -1325,8 +1325,8 @@ body {
 
     position: fixed; 
     left: 50%;
-    transform: translateX(-50%); 
-    bottom: calc(1px + env(safe-area-inset-bottom, 10px));
+    transform: translateX(-50%);  
+    bottom: calc(2px + env(safe-area-inset-bottom, 0px));
     z-index: 9999; 
 }
 }
