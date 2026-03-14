@@ -1320,7 +1320,7 @@ body {
     max-height: 35px;
     pointer-events: none; 
     flex-shrink: 0;
-    margin-bottom: calc(10px + env(safe-area-inset-bottom, 50px));
+    margin-bottom: 8svh;
 }
 }
 
