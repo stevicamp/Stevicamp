@@ -1319,8 +1319,15 @@ body {
     max-width: 35px;
     max-height: 35px;
     pointer-events: none; 
-    flex-shrink: 0;
-    margin-bottom: 15svh;
+    
+     
+
+
+    position: fixed; 
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6svh;
+    z-index: 9999; 
 }
 }
 
