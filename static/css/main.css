@@ -1326,7 +1326,7 @@ body {
     position: fixed; 
     left: 50%;
     transform: translateX(-50%);
-    bottom: 2svh;
+    bottom: 0.5svh;
     z-index: 9999; 
 }
 }
