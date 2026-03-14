@@ -1326,7 +1326,7 @@ body {
     position: fixed; 
     left: 50%;
     transform: translateX(-50%);  
-    bottom: calc(2px + env(safe-area-inset-bottom, 0px));
+    bottom: 1dvh; 
     z-index: 9999; 
 }
 }
