@@ -76,6 +76,7 @@ const routes = {
 // The method that gets the current view and injects it in the "app"" container div.
 // Handle location  ---------------------------------------------------------------------------------------
 const handleLocation = async () => {
+    document.getElementById('app').style.overflow = "auto"; // Overflow for the app container otherwise sometimes it hidden
     if (window.location.search == "") {
         const path = window.location.pathname;
         const currentRoute = routes[path] || routes['/']; // If there is no match go to Home "/" if the url is not found in the "routes object" than load Home View
@@ -99,8 +100,7 @@ window.addEventListener("popstate", handleLocation); // On popstate "If back but
 document.addEventListener("DOMContentLoaded", () => { // On Dom loaded add bodyEventlistener to listen for click in the body
     document.body.addEventListener("click", e => { //Listen for click in the body
         if (e.target.closest("[data-link]")) {  // If body item was clicked and it is data-link decorated 
-            router(e); // Load the content if the url is defined in our "Spa Urls"
-            document.getElementById('app').style.overflow = "auto"; // Overflow for the app container otherwise sometimes it hidden
+            router(e); // Load the content if the url is defined in our "Spa Urls" 
         }
     });
 });
