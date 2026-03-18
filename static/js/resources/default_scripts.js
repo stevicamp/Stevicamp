@@ -1148,7 +1148,7 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     else if (item.category == "appliances") {
         generatedItemHtml = await appliancesHtmlTemplate(item);
     }
-    else if (item.category == "boat") {
+    else if (item.category == "boats") {
         generatedItemHtml = await boatsHtmlTemplate(item);
     }
 
