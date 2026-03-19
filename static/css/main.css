@@ -319,9 +319,31 @@ html {
 
 
 
+.slide-show-btn
+{
+    width:35px;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.slide-show-btn:hover
+{
+    filter: saturate(400%) hue-rotate(200deg);
+}
 
 
+.rotate {
+    animation: spin 4s linear infinite; /* spin every 2 seconds */
+}
 
+@keyframes spin {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to { transform: translateX(-50%) rotate(360deg); }
+}
 
 
 
