@@ -1316,7 +1316,7 @@ body {
         inset: 0;
         margin: 2svh auto auto auto;
 
-         max-height: 83svh;
+         max-height: 90svh;
          /* margin-top: -7svh; */
          
          overflow-y: auto;
@@ -1376,7 +1376,7 @@ body {
     max-width: 35px;
     max-height: 35px;
     pointer-events: none;
-    margin-bottom: 8sdvh;
+    margin-bottom: 1svh;
     z-index: -55;      
 }
 }
