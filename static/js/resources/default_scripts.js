@@ -207,9 +207,25 @@ document.body.addEventListener('keydown', function (e) {
             modalItemContainer.focus();
         }
     }
-    else if(e.key === "Escape" && modal.style.display == "flex")
-    {
-      toggleFullSizeImg();
+    else if (e.key === "Escape" && modal.style.display == "flex") {
+
+        if (document.getElementsByClassName('img-slide-container-full-size')[0]) {
+            toggleFullSizeImg();
+        }
+        else {
+            document.getElementById('modalWindow').focus();
+            let modal = document.getElementById("modalWindow");
+            modal.style.display = 'none';
+
+            history.pushState({}, "", prevUrl); // Push the prev url so it can be retrived by using back and forward buutosn on the browser
+
+            modalImgIndex = 0; // Reset the image tab index on modal close
+            document.getElementById("app").style.overflow = "auto"; // Reset the overflow for the app, so it can be scrolled
+
+            removeElementsByClassName('slide'); // Remove image elements of specific item on close modal
+            clearInterval(slideShowIntervalId); // Stop the slideshow
+            slideShowIntervalId = null;
+        }
     }
 });
 
@@ -1824,7 +1840,7 @@ function initTranlate() {
 
 
 // Starts the slide show and changes the images every 4 sec. // If the user exits the modal it stops, there is logix in the modal close to stop it and also on popstate navigating back also stops it.
- function toggleSlideShowImages() {
+function toggleSlideShowImages() {
 
     let slideshowBtn = document.getElementById('startSlideShow');
     if (slideShowIntervalId == null) {
@@ -1844,19 +1860,18 @@ function initTranlate() {
 
 
 
-function toggleFullSizeImg()
-{
+function toggleFullSizeImg() {
     // The button itself
     let showFullSizeImgBtn = document.getElementById('showFullSizeImgBtn');
-     const isFull = showFullSizeImgBtn.classList.toggle('full-size-img-btn-clicked');
+    const isFull = showFullSizeImgBtn.classList.toggle('full-size-img-btn-clicked');
 
     // The image slide container with the image inside
     let imgContainer = document.getElementsByClassName('img-preview-container')[0] || document.getElementsByClassName('img-slide-container-full-size')[0]; // Get the image container
-    
+
     imgContainer.classList.toggle('img-slide-container-full-size', isFull); // Make it resize full screen or if already full screen reset / toggle the class 
-    
+
     imgContainer.classList.toggle('img-preview-container', !isFull);
- 
+
 
     // if (showFullSizeImgBtn.classList.toggle('full-size-img-btn-clicked')) 
     // {
@@ -1866,7 +1881,7 @@ function toggleFullSizeImg()
     // else 
     // {
     //     // reset class of img container slide
-       
+
     // }
-   
+
 }
