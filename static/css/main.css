@@ -1316,7 +1316,7 @@ body {
         inset: 0;
         margin: 2svh auto auto auto;
 
-         max-height: 80dvh;
+         max-height: 83svh;
          /* margin-top: -7svh; */
          
          overflow-y: auto;
@@ -1376,7 +1376,7 @@ body {
     max-width: 35px;
     max-height: 35px;
     pointer-events: none;
-    margin-bottom: 10dvh;
+    margin-bottom: 8sdvh;
     z-index: -55;      
 }
 }
@@ -1404,9 +1404,8 @@ body {
      
 
     position: fixed; 
-    left: 50%;
-    transform: translateX(-50%);  
-    bottom: 0px; 
+    inset: 0;
+     margin: auto auto 2svh auto;
     z-index: -55;      
       
 }
