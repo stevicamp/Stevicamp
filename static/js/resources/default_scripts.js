@@ -1171,6 +1171,8 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     document.getElementById('arrow-rightSlideImg')?.addEventListener('click', async () => { toggleModalImg(1) }); // The img slide right button
     document.getElementById('startSlideShow')?.addEventListener('click', async () => { toggleSlideShowImages() }); // The slide show button - changes the slide img every 4 sec. 
     document.getElementById('showFullSizeImgBtn')?.addEventListener('click', async () => { toggleFullSizeImg() }); //  Shows the current img in full size
+    // document.getElementsByClassName('img-preview-container')[0]?.addEventListener('click', async () => { toggleFullSizeImg() }); //  Shows the current img in full size
+    document.querySelector('.img-preview-container')?.addEventListener('click', e => e.target.closest('.slide') && toggleFullSizeImg()); // Event delegation adding dynamicly eventlisteners to the slide class so that ehrn the slide is clicket to show the image in full screen
 
 
 }
@@ -1220,10 +1222,10 @@ let touchendX = 0
 
 function checkDirection() {
     // Left .....................
-    if (touchendX < touchstartX && (touchstartX - touchendX) > 50) {
+    if (touchendX < touchstartX && (touchstartX - touchendX) > 150) {
         toggleModalImg(1);
     }
-    else if (touchendX > touchstartX && (touchendX - touchstartX) > 50) // Right ..................
+    else if (touchendX > touchstartX && (touchendX - touchstartX) > 150) // Right ..................
     {
         toggleModalImg(-1);
     }
