@@ -1401,9 +1401,7 @@ body {
     max-width: 35px;
     max-height: 35px;
     pointer-events: none; 
-    
      
-
 
     position: fixed; 
     left: 50%;
@@ -1412,6 +1410,23 @@ body {
     z-index: -55;      
       
 }
+
+
+.img-slide-container-full-size
+{
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100svw;
+  height: 100svh;
+
+  z-index: 99999999999;      
+  margin: 0;          
+   display: flex;              
+  align-items: center;          
+  justify-content: center; 
+}
+
 }
 
 
