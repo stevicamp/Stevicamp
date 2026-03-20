@@ -260,6 +260,7 @@ html {
 
 
 
+
 /*VERTICAL & HORIZONTAL - TOGGLE BUTTON - SHARED ON HOVER*/
 .button-toggle-vertical-bar:hover,
 .button-toggle-horizontal-bar:hover {
@@ -348,6 +349,49 @@ html {
 
 
 
+
+
+
+
+.full-size-img-btn
+{
+    width:35px;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    right:20%;
+    cursor: pointer;
+    z-index: 99999999;
+}
+
+.full-size-img-btn:hover
+{
+ filter: saturate(400%) hue-rotate(200deg);
+}
+
+.full-size-img-btn-clicked
+{
+  filter: saturate(700%) hue-rotate(600deg);
+}
+
+
+
+.img-slide-container-full-size
+{
+  position: fixed;   
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 99999999999;      
+  margin: 0;          
+   display: flex;              
+  align-items: center;          
+  justify-content: center; 
+}
+
+
 /* COMMON CSS ======================================================================================*/
 
 .toggler {
@@ -393,14 +437,16 @@ html {
     max-height: 35px;
     pointer-events: none;
     margin-bottom: 3dvh; 
+    z-index: -55;      
+      
 }
 
-
-
+  
 .no-events {
-    pointer-events: none;
+ pointer-events: none;
 }
 
+ 
 
 .font-Size-8
 {
@@ -774,9 +820,17 @@ html {
     border-radius: 10px;
     border: 2px solid rgb(83, 82, 99);
     background-color: rgb(44, 48, 49);
-    top: 50%;
+
+
+    
+    margin: auto;
+
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+   
+   
+   
     /* max-height: 90vh;
      max-width: 90vw;
      min-height:auto;
@@ -790,7 +844,7 @@ html {
     color: rgb(252, 202, 65);
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: auto;
+    /* overflow: auto; */
     box-sizing: border-box; 
 }
 
@@ -1253,11 +1307,18 @@ body {
 
     .modalContentContainer {
         position: fixed;
-        top: 50%;
+
+        /* top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); */
+
+        /* New */
+        inset: 0;
+        margin: 5svh auto auto auto;
+
          max-height: 80dvh;
-         margin-top: -7svh;
+         /* margin-top: -7svh; */
+         
          overflow-y: auto;
     }
 
@@ -1316,6 +1377,7 @@ body {
     max-height: 35px;
     pointer-events: none;
     margin-bottom: 10dvh;
+    z-index: -55;      
 }
 }
 
@@ -1347,7 +1409,8 @@ body {
     left: 50%;
     transform: translateX(-50%);  
     bottom: 0px; 
-    z-index: 9999; 
+    z-index: -55;      
+      
 }
 }
 

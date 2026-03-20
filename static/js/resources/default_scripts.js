@@ -207,8 +207,11 @@ document.body.addEventListener('keydown', function (e) {
             modalItemContainer.focus();
         }
     }
+    else if(e.key === "Escape" && modal.style.display == "flex")
+    {
+      toggleFullSizeImg();
+    }
 });
-
 
 
 // function keyPress(e) {
@@ -318,7 +321,7 @@ function htmlItemSold(item) {
 
 // The image slide arrow buttons
 function imgSlideArrowButtons() {
-    return `<img id="startSlideShow" class="slide-show-btn" src="static/img/icons/start.png"/><button id="arrow-leftSlideImg" class="arrow-left prevent-select">&#10094;</button>
+    return `<img id="startSlideShow" class="slide-show-btn" src="static/img/icons/start.png"/><img id="showFullSizeImgBtn" class="full-size-img-btn" src="static/img/icons/full-size.png"/><button id="arrow-leftSlideImg" class="arrow-left prevent-select">&#10094;</button>
     <button id="arrow-rightSlideImg" class="arrow-right prevent-select">&#10095;</button> `;
 }
 
@@ -1166,7 +1169,8 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     document.getElementById("app").style.overflow = "hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
     document.getElementById('arrow-leftSlideImg')?.addEventListener('click', async () => { toggleModalImg(-1) }); // The img slide left button
     document.getElementById('arrow-rightSlideImg')?.addEventListener('click', async () => { toggleModalImg(1) }); // The img slide right button
-    document.getElementById('startSlideShow')?.addEventListener('click', async () => { toggleSlideShowImages() }); // The img slide right button
+    document.getElementById('startSlideShow')?.addEventListener('click', async () => { toggleSlideShowImages() }); // The slide show button - changes the slide img every 4 sec. 
+    document.getElementById('showFullSizeImgBtn')?.addEventListener('click', async () => { toggleFullSizeImg() }); //  Shows the current img in full size
 
 
 }
@@ -1817,7 +1821,7 @@ function initTranlate() {
 }
 
 
-
+// Starts the slide show and changes the images every 4 sec. // If the user exits the modal it stops, there is logix in the modal close to stop it and also on popstate navigating back also stops it.
  function toggleSlideShowImages() {
 
     let slideshowBtn = document.getElementById('startSlideShow');
@@ -1837,3 +1841,30 @@ function initTranlate() {
 }
 
 
+
+function toggleFullSizeImg()
+{
+    // The button itself
+    let showFullSizeImgBtn = document.getElementById('showFullSizeImgBtn');
+     const isFull = showFullSizeImgBtn.classList.toggle('full-size-img-btn-clicked');
+
+    // The image slide container with the image inside
+    let imgContainer = document.getElementsByClassName('img-preview-container')[0] || document.getElementsByClassName('img-slide-container-full-size')[0]; // Get the image container
+    
+    imgContainer.classList.toggle('img-slide-container-full-size', isFull); // Make it resize full screen or if already full screen reset / toggle the class 
+    
+    imgContainer.classList.toggle('img-preview-container', !isFull);
+ 
+
+    // if (showFullSizeImgBtn.classList.toggle('full-size-img-btn-clicked')) 
+    // {
+    //     // change the class of the slide img container to be full screen
+    //    imgContainer.classList.toggle('img-slide-container-full-size');
+    // }
+    // else 
+    // {
+    //     // reset class of img container slide
+       
+    // }
+   
+}
