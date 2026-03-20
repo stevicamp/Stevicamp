@@ -1844,13 +1844,13 @@ function toggleSlideShowImages() {
 
     let slideshowBtn = document.getElementById('startSlideShow');
     if (slideShowIntervalId == null) {
-        slideshowBtn.style.backgroundImage = "url('static/img/icons/stop.png')";
+        slideshowBtn.style.backgroundImage = "url('/static/img/icons/stop.png')";
         slideShowIntervalId = setInterval(() => {
             toggleModalImg(1); // Change to next image
         }, 4000); // Change every second 
     }
     else {
-        slideshowBtn.style.backgroundImage = "url('static/img/icons/start.png')";
+        slideshowBtn.style.backgroundImage = "url('/static/img/icons/start.png')";
         clearInterval(slideShowIntervalId); // Stop the slideshow
         slideShowIntervalId = null;
     }
