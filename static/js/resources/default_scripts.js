@@ -337,7 +337,7 @@ function htmlItemSold(item) {
 
 // The image slide arrow buttons
 function imgSlideArrowButtons() {
-    return `<img id="startSlideShow" class="slide-show-btn" src="static/img/icons/start.png"/><img id="showFullSizeImgBtn" class="full-size-img-btn" src="static/img/icons/full-size.png"/><button id="arrow-leftSlideImg" class="arrow-left prevent-select">&#10094;</button>
+    return `<button id="startSlideShow" class="slide-show-btn"></button><button id="showFullSizeImgBtn" class="full-size-img-btn"></button><button id="arrow-leftSlideImg" class="arrow-left prevent-select">&#10094;</button>
     <button id="arrow-rightSlideImg" class="arrow-right prevent-select">&#10095;</button> `;
 }
 
@@ -1844,13 +1844,13 @@ function toggleSlideShowImages() {
 
     let slideshowBtn = document.getElementById('startSlideShow');
     if (slideShowIntervalId == null) {
-        slideshowBtn.src = 'static/img/icons/stop.png';
+        slideshowBtn.style.backgroundImage = "url('/static/img/icons/stop.png')";
         slideShowIntervalId = setInterval(() => {
             toggleModalImg(1); // Change to next image
         }, 4000); // Change every second 
     }
     else {
-        slideshowBtn.src = 'static/img/icons/start.png';
+        slideshowBtn.style.backgroundImage = "url('/static/img/icons/start.png')";
         clearInterval(slideShowIntervalId); // Stop the slideshow
         slideShowIntervalId = null;
     }

@@ -323,12 +323,18 @@ html {
 .slide-show-btn
 {
     width:35px;
-    height: auto;
+    height: 35px;
     position: absolute;
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    cursor: pointer;
+    cursor: pointer; 
+    background-image: url('/static/img/icons/start.png');
+    background-size: contain;       
+    background-repeat: no-repeat;   
+    background-position: center;    
+    border: none;                   
+    background-color: transparent;
 }
 
 .slide-show-btn:hover
@@ -356,12 +362,18 @@ html {
 .full-size-img-btn
 {
     width:35px;
-    height: auto;
+    height: 35px;
     position: absolute;
     top: 15px;
     right:20%;
     cursor: pointer;
     z-index: 99999999;
+    background-image: url('/static/img/icons/full-size.png');
+    background-size: contain;       
+    background-repeat: no-repeat;   
+    background-position: center;    
+    border: none;                   
+    background-color: transparent;
 }
 
 .full-size-img-btn:hover
